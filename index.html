@@ -315,19 +315,19 @@
   $(document).ready(function() {
     let cartItems = 0;
     let totalPrice = 0;
-    let orders = []; // Array to store selected items
+    let orders = []; 
 
 
-    $('.btn.btn-primary').click(function() { // Changed selector to target the add to cart buttons
+    $('.btn.btn-primary').click(function() { 
       // Increment cart count
       cartItems++;
       $('.badge').text(cartItems);
 
 
-      let productName = $(this).siblings('h5').text(); // Retrieve product name
-      let productPrice = $(this).siblings('.price').text(); // Retrieve product price
-      let priceNumber = parseFloat(productPrice.replace(' pesos', '').replace(',', '')); // Parse price to number
-      totalPrice += priceNumber; // Update total price
+      let productName = $(this).siblings('h5').text(); 
+      let productPrice = $(this).siblings('.price').text(); 
+      let priceNumber = parseFloat(productPrice.replace(' pesos', '').replace(',', '')); 
+      totalPrice += priceNumber; 
 
 
       orders.push({ name: productName, price: productPrice });
@@ -344,7 +344,7 @@
       if (cartItems === 0) {
         alert('Your cart is empty!');
       } else {
-        // Show total and list of orders before prompting for user information
+        
         let orderList = orders.map(order => order.name + ': ' + order.price).join('\n');
         let confirmation = confirm('Total: ' + totalPrice.toFixed(2) + ' pesos\n\nOrders:\n' + orderList + '\n\nProceed to checkout?');
 
